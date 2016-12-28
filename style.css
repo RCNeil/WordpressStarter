@@ -324,58 +324,24 @@ ul.menu li:hover > ul:after {
 
 /* ANIMATIONS
 ========================*/
+@supports (-webkit-animation:test) or (animation:test) {
 
-
+.animate {
+	opacity:0.0; 
+}		
 .animation {
 	-webkit-animation:slideIn 1s forwards;
 	animation:slideIn 1s forwards;
 }
 
-
-
-
-
 @-webkit-keyframes slideIn {
-from 	{ opacity:0.0; -webkit-transform: translate(0px,0px); }
-to		{ opacity:1.0; -webkit-transform: translate(0,0); }
-}
-
-@-moz-keyframes slideIn {
-from 	{ opacity:0.0; -moz-transform: translate(0px,0px); }
-to		{ opacity:1.0; -moz-transform: translate(0,0); }
-}
-
-@-ms-keyframes slideIn {
-from 	{ opacity:0.0; -ms-transform: translate(0px,0px); }
-to		{ opacity:1.0; -ms-transform: translate(0,0); }
-}
+	from 	{ opacity:0.0; -webkit-transform: translate(0px,40px); }
+	to		{ opacity:1.0; -webkit-transform: translate(0,0); }
+	}
 
 @-keyframes slideIn {
-from 	{ opacity:0.0; transform: translate(0px,0px); }
-to		{ opacity:1.0; transform: translate(0,0); }
-}
-
-
-
-
-@-webkit-keyframes slideUp {
-from 	{ opacity:0.0; -webkit-transform: translate(0px,50px); }
-to		{ opacity:1.0; -webkit-transform: translate(0,0); }
-}
-
-@-moz-keyframes slideUp {
-from 	{ opacity:0.0; -moz-transform: translate(0px,50px); }
-to		{ opacity:1.0; -moz-transform: translate(0,0); }
-}
-
-@-ms-keyframes slideUp {
-from 	{ opacity:0.0; -ms-transform: translate(0px,50px); }
-to		{ opacity:1.0; -ms-transform: translate(0,0); }
-}
-
-@-keyframes slideUp {
-from 	{ opacity:0.0; transform: translate(0px,50px); }
-to		{ opacity:1.0; transform: translate(0,0); }
+	from 	{ opacity:0.0; transform: translate(0px,40px); }
+	to		{ opacity:1.0; transform: translate(0,0); }
 }
 
 
@@ -412,7 +378,7 @@ to		{ opacity:1.0; transform: translate(0,0); }
 
 
 
-
+}
 
 
 
