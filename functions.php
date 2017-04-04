@@ -5,26 +5,13 @@
  *  Custom functions, support, custom post types and more.
  */
 
-if (!isset($content_width))
-{
-    $content_width = 900;
-}
+if (!isset($content_width)) { $content_width = 900;	}
 
-if (function_exists('add_theme_support'))
-{
-    // Add Menu Support
+if (function_exists('add_theme_support')){
     add_theme_support('menus');
-
-    // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-	
-	//CUSTOM THUMBNAIL SIZES
     add_image_size('custom-size', 700, 400, true); 
-
-    // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
-
-    // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
 }
 
@@ -67,6 +54,9 @@ function html5blank_header_scripts()
 
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
+		
+		wp_register_script('inview', get_template_directory_uri() . '/js/lib/jquery.inview.min.js', array('jquery'), ''); // InView
+        wp_enqueue_script('inview'); // Enqueue it!
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -303,7 +293,6 @@ function html5blankcomments($comment, $args, $depth)
 
 // Add Actions
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu

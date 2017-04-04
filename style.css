@@ -41,6 +41,9 @@ div {
 	float:none; clear:both; margin:0px auto; padding:0px;
 	width:100%; height:auto; 	
 }
+.padded-container {
+	padding:64px 0px;
+}
 .row {
 	float:none; clear:both; margin:0px auto; padding:0px; 
 	width:100%; height:auto; 
@@ -86,6 +89,11 @@ div[class*='span'] {
 	width:auto;
 	height:auto;
 }
+.flex-container {
+	display:-webkit-flex;
+	display:flex;
+}
+
 h1, h2, h3, h4, h5, h6 {
 
 }
@@ -122,18 +130,20 @@ hr {
 	display:block; clear:both; position:relative;
 	max-width:640px;
 	border:0px;
-	border-bottom:2px #ab9c81 solid;
+	border-bottom:2px #a3a3a3 solid;
 	height:1px;
 }
-input {
+input, textarea {
 	-moz-box-sizing: border-box;
    -webkit-box-sizing: border-box;
    -ms-box-sizing: border-box;
    	box-sizing: border-box;
-	width:auto;
+	display:block;
+	max-width:100%;
+	width:100%;
 	height:auto;
-	padding:10px 18px 6px 18px;
-	margin:0px auto; 
+	padding:12px 24px;
+	margin:8px auto; 
 	
 	font-size:14px;
 	line-height:18px;
@@ -143,21 +153,25 @@ input {
 
 a.button, input[type="submit"] {
 	display:inline-block; position:relative;
-	margin:10px auto; padding:10px 34px 10px 34px;
-	width:auto; height:auto;
+	margin:10px auto; 
+	padding:10px 34px;
+	width:auto; 
+	height:auto;
 	
 	font-size:18px; line-height:18px;
 	text-transform:uppercase;
-	background:#383838 !important;
-	color:#fff !important; 
+	border:0px;
+	
+	background:#a3a3a3;
+	color:#000;
 	
 	-webkit-transition:200ms;
 	transition:200ms;
 }
 
 a.button:hover, input[type="submit"]:hover {
-	background:#aaa !important;
-	color:#fff !important; 
+	background:#383838;
+	color:#fff;
 }
 
 
@@ -205,57 +219,6 @@ ul.menu li a:hover {
 	
 }
 
-ul.sub-menu {
-	display:none;
-	position:absolute;
-	z-index:9999 !important;
-	background: #383838;	
-	padding:10px 0px; 
-	margin:0px;
-	list-style:none;
-	text-align:left; 
-	box-shadow:none;
-}
-
-ul.sub-menu li {
-	display:block; 
-	float:none; 
-	clear:both;
-}
-
-ul.menu li:hover > ul.sub-menu {
-	display:block; 
-}
-
-
-ul.sub-menu li a:link, ul.sub-menu li a:visited {
-	font-size:16px;
-	line-height:18px; 
-	font-weight:300; 
-	color:#fff; 
-	padding:10px 20px; 
-	border-bottom:0px; 
-	width:300px;
-}
-
-ul.sub-menu li a:hover {
-	color:#fff; 
-}
-
-ul.menu li:hover > ul:after {
-	bottom: 100%;
-	left: 20%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(255, 198, 0, 0);
-	border-bottom-color: #383838;
-	border-width: 8px;
-	margin-left: -8px;
-}
 
 
 
