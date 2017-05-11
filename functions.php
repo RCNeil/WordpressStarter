@@ -361,17 +361,17 @@ function create_post_type() {
             'not_found_in_trash' => __('No posts found in Trash', 'html5blank')
         ),
         'public' => true,
-		'rewrite' => array( 'slug' => 'attorney' ), //CHANGE SLUG?
-		'menu_icon' => 'dashicons-businessman', //See options - http://melchoyce.github.io/dashicons/
+		'rewrite' => array( 'slug' => 'attorney' ),
+		'menu_icon' => 'dashicons-businessman', 
 		'menu_position' => 35,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'hierarchical' => true, 
         'has_archive' => true,
         'supports' => array(
             'title',
             'editor',
             'thumbnail',
-			'page-attributes'
-        ), //WHAT CAN THEY EDIT?  title, thumbnail, author, excerpt, custom-fields, comments, page-attributes 
+			'revisions'
+        ), 
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
         ) // Add Category and Post Tags support, see custom below
