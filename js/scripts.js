@@ -11,4 +11,17 @@
 		}
 	}
 
+	mobileToggle();
+	function mobileToggle() {
+		$('.mobile-menu').click(function(e) {
+			e.preventDefault();
+			$(this).blur();
+			if($('.header').hasClass('opened')) {
+				$('.header').removeClass('opened');
+			} else {
+				$('.header').addClass('opened');
+			}
+		});	
+	}
+
 }); })(jQuery, this);
