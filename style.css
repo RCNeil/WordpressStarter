@@ -10,7 +10,7 @@
 	License URI: http://opensource.org/licenses/mit-license.php
 */
 
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic,700italic);
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700');
 
 /*WP CORE
 =========================*/
@@ -29,7 +29,7 @@ body {
 div { 
 	display:block; 
 	position:relative; 
-	margin:0px auto; 
+	margin:0px; 
 	padding:0px; 
 }
 .body-wrapper {
@@ -52,9 +52,9 @@ div {
 
 div[class*='span'] {
 	float:left; margin:0px auto; padding:28px 28px; height:auto;
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   -ms-box-sizing: border-box;
+   	-moz-box-sizing: border-box;
+   	-webkit-box-sizing: border-box;
+   	-ms-box-sizing: border-box;
    	box-sizing: border-box;
 }
 .span5 { width:5%; }
@@ -79,16 +79,7 @@ div[class*='span'] {
 .span90 { width:90%; }
 .span100 { width:100%; }
 
-.table {
-	display:table; position:absolute; height:100%; width:100%;
-}
-.table-cell {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	width:auto;
-	height:auto;
-}
+
 .flex-container {
 	display:-webkit-flex;
 	display:flex;
@@ -99,13 +90,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	
+	font-size:18px;
+	line-height:26px;
+	margin:18px auto;
+	padding:0;
 }
 a {
-	-webkit-transition: 120ms;
 	transition: 120ms; 
 	text-decoration:none;
-	color:#336699;
+	color:#454545;
 }
 a:hover {
 	color:#383838;
@@ -132,46 +125,6 @@ hr {
 	border:0px;
 	border-bottom:2px #a3a3a3 solid;
 	height:1px;
-}
-input, textarea {
-	-moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   -ms-box-sizing: border-box;
-   	box-sizing: border-box;
-	display:block;
-	max-width:100%;
-	width:100%;
-	height:auto;
-	padding:12px 24px;
-	margin:8px auto; 
-	
-	font-size:14px;
-	line-height:18px;
-	
-	border:1px #ccc solid; 
-}
-
-a.button, input[type="submit"] {
-	display:inline-block; position:relative;
-	margin:10px auto; 
-	padding:10px 34px;
-	width:auto; 
-	height:auto;
-	
-	font-size:18px; line-height:18px;
-	text-transform:uppercase;
-	border:0px;
-	
-	background:#a3a3a3;
-	color:#000;
-	
-	-webkit-transition:200ms;
-	transition:200ms;
-}
-
-a.button:hover, input[type="submit"]:hover {
-	background:#383838;
-	color:#fff;
 }
 
 
@@ -221,6 +174,94 @@ ul.menu li a:hover {
 
 .mobile-menu {
 	display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FORMS
+============================== */
+
+input, textarea {
+	-moz-box-sizing: border-box;
+   	-webkit-box-sizing: border-box;
+   	-ms-box-sizing: border-box;
+   	box-sizing: border-box;
+	display:block;
+	max-width:100%;
+	width:100%;
+	height:auto;
+	padding:12px 24px;
+	margin:8px auto; 
+	
+	font-size:14px;
+	line-height:18px;
+	
+	border:1px #ccc solid; 
+}
+
+a.button, input[type="submit"] {
+	display:inline-block; position:relative;
+	margin:10px auto; 
+	padding:10px 34px;
+	width:auto; 
+	height:auto;
+	
+	font-size:18px; line-height:18px;
+	text-transform:uppercase;
+	border:0px;
+	
+	background:#a3a3a3;
+	color:#000;
+	
+	-webkit-transition:200ms;
+	transition:200ms;
+}
+
+a.button:hover, input[type="submit"]:hover {
+	background:#383838;
+	color:#fff;
+}
+
+div.wpcf7-response-output {
+    margin: 0px auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 18px;
+    text-align: center;
+}
+
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #99c387;
+    background: #d4fbb2;
+    color: #000;
+}
+
+div.wpcf7-validation-errors {
+    border: 2px solid #d0c419;
+    background: #dcdc9b;
+    color: #000;
+}
+
+div.wpcf7-spam-blocked {
+    border: 2px solid #d49d3a;
+    background: #dcc497;
+    color: #000;
+}
+
+div.wpcf7-mail-sent-ng {
+    border: 2px solid #f35656;
+    background: #e4b2b2;
+    color: black;
 }
 
 
@@ -302,12 +343,12 @@ ul.menu li a:hover {
 }
 
 @-webkit-keyframes slideIn {
-	from 	{ opacity:0.0; -webkit-transform: translate(0px,40px); }
+	from 	{ opacity:0.0; -webkit-transform: translate(0px,0px); }
 	to		{ opacity:1.0; -webkit-transform: translate(0,0); }
 	}
 
 @-keyframes slideIn {
-	from 	{ opacity:0.0; transform: translate(0px,40px); }
+	from 	{ opacity:0.0; transform: translate(0px,0px); }
 	to		{ opacity:1.0; transform: translate(0,0); }
 }
 
@@ -394,7 +435,7 @@ ul.menu li a:hover {
 		height: 100%;
 		align-items: center;
 		justify-content: center;
-		background: #008c9a;
+		background: #383838;
 		z-index: 900;
 		flex: column wrap;
 	}
@@ -415,8 +456,8 @@ ul.menu li a:hover {
 		color:#fff;
 	}
 	
-ul.menu li a:hover {
-		color:red;
+	ul.menu li a:hover {
+		color:#fff;
 	}
 
 
