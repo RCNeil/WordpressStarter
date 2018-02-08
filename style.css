@@ -237,7 +237,6 @@ a.button:hover, input[type="submit"]:hover {
 
 div.wpcf7-response-output {
     margin: 0px auto;
-    display: block;
     box-sizing: border-box;
     padding: 18px;
     text-align: center;
