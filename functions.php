@@ -344,11 +344,11 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 /*
 function create_post_type() {
 
-    register_post_type('attorneys', // Register Custom Post Type
+    register_post_type('new-post-type', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Attorneys', 'html5blank'), // Rename these to suit
-            'singular_name' => __('Attorney', 'html5blank'),
+            'name' => __('New Post Type', 'html5blank'), // Rename these to suit
+            'singular_name' => __('New Post Type', 'html5blank'),
             'add_new' => __('Add New', 'html5blank'),
             'add_new_item' => __('Add New ', 'html5blank'),
             'edit' => __('Edit', 'html5blank'),
@@ -361,16 +361,17 @@ function create_post_type() {
             'not_found_in_trash' => __('No posts found in Trash', 'html5blank')
         ),
         'public' => true,
-		'rewrite' => array( 'slug' => 'attorney' ),
+		'rewrite' => array( 'slug' => 'new-post-type' ),
 		'menu_icon' => 'dashicons-businessman', 
 		'menu_position' => 35,
         'hierarchical' => true, 
         'has_archive' => true,
+	'show_in_rest' => true,
         'supports' => array(
-            'title',
-            'editor',
-            'thumbnail',
-			'revisions'
+            	'title',
+            	'editor',
+           	'thumbnail',
+		'revisions'
         ), 
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
