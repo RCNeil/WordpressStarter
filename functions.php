@@ -479,11 +479,24 @@ function textarea_temp_fix() {
 //USE FONT AWESOME IN THEME
 add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
 function enqueue_font_awesome() {
-	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css' );
 }
 
 
 
+//SQUATCH WP LOGO
+function add_squatch_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/squatch-wp-black.png);
+		border: 0px;
+		border-radius: 50%;
+		background-size: 81px 81px;
+		background-position: center center;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'add_squatch_logo' );
 
 
 
