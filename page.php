@@ -2,7 +2,7 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); 
 	$bg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 ?>
-<div class="container" style="backround:url('<?php echo $bg[0]; ?>') center center no-repeat;background-size:cover;">
+<div class="container" style="background:url('<?php echo $bg[0]; ?>') center center no-repeat;background-size:cover;">
 	<div class="row">
 		<div class="span100">
 			<main role="main">
