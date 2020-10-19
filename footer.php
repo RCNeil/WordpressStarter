@@ -7,8 +7,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span20 text-center" style="margin:0px auto; float:none;">
-			<a href="http://squatch.us" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/built-by-squatch.png" alt="" class="builtby" /></a>
+		<div class="span20 text-center">
+			<a href="https://squatch.us"  class="builtby" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/built-by-squatch.png" alt="Built By Squatch Creative" /></a>
 		</div>
 	</div>
 <div class="clear"></div>

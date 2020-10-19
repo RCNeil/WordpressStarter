@@ -4,7 +4,7 @@
 	Description: WP Theme for 
 	Version: 1
 	Author: Squatch Creative
-	Author URI: http://squatch.us
+	Author URI: https://squatch.us
 
 	License: MIT
 	License URI: http://opensource.org/licenses/mit-license.php
@@ -17,13 +17,18 @@
 
 *,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility}.alignnone{margin:5px 20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px auto}.alignright{float:right;margin:5px 0 20px 20px}.alignleft{float:left;margin:5px 20px 20px 0}a img.alignright{float:right;margin:5px 0 20px 20px}a img.alignleft,a img.alignnone{margin:5px 20px 20px 0}a img.alignleft{float:left}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{background:#FFF;border:1px solid #F0F0F0;max-width:96%;padding:5px 3px 10px;text-align:center}.wp-caption.alignleft,.wp-caption.alignnone{margin:5px 20px 20px 0}.wp-caption.alignright{margin:5px 0 20px 20px}.wp-caption img{border:0;height:auto;margin:0;max-width:98.5%;padding:0;width:auto}.gallery-caption,.wp-caption .wp-caption-text{font-size:11px;line-height:17px;margin:0;padding:0 4px 5px}
 
-/* SPAN SIMPLE by Squatch
-==========================*/
+:root {
+	
+}
+
+html {
+	font-size:16px;
+}
+
 body {
 	margin:0px; padding:0px;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	background:#fff;
-	font-size:18px; line-height:26px; 
 	color:#000;
 } 
 div { 
@@ -38,8 +43,12 @@ div {
 	overflow:hidden; 
 }
 .container {
-	float:none; clear:both; margin:0px auto; padding:0px;
-	width:100%; height:auto; 	
+	float:none; 
+	clear:both; 
+	margin:0px auto; 
+	padding:0px;
+	width:100%; 
+	height:auto; 	
 }
 .padded-container {
 	padding:64px 0px;
@@ -49,7 +58,6 @@ div {
 	width:100%; height:auto; 
 	max-width:1080px; 
 }
-
 div[class*='span'] {
 	float:left; margin:0px auto; padding:28px 28px; height:auto;
    	-moz-box-sizing: border-box;
@@ -79,29 +87,43 @@ div[class*='span'] {
 .span90 { width:90%; }
 .span100 { width:100%; }
 
-
-.flex-container {
-	display:-webkit-flex;
-	display:flex;
+h1 {
+	font-size:3rem;
+	line-height:135%;
+	margin:1.5rem auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2 {
+	font-size:2.4rem;
+	line-height:135%;
+	margin:1.5rem auto;
+}
 
+h3 {
+	font-size:1.8rem;
+	line-height:135%;
+	margin:1.5rem auto;
+}
+
+h4 {
+	font-size:1.4rem;
+	line-height:135%;
+	margin:1rem auto;
 }
 
 p {
-	font-size:18px;
-	line-height:26px;
-	margin:18px auto;
+	font-size:1.1rem;
+	line-height:140%;
+	margin:1.1rem;
 	padding:0;
 }
 a {
-	transition: 120ms; 
+	transition: 180ms ease all; 
 	text-decoration:none;
-	color:#454545;
+	color:#336699;
 }
 a:hover {
-	color:#383838;
+	color:#000000;
 }
 img, a img {
 	display:inline-block; 
@@ -205,33 +227,29 @@ input, textarea {
 	height:auto;
 	padding:12px 24px;
 	margin:8px auto; 
-	
-	font-size:14px;
-	line-height:18px;
-	
+	font-size:1rem;
+	line-height:100%;	
 	border:1px #ccc solid; 
 }
 
 a.button, input[type="submit"] {
 	display:inline-block; position:relative;
-	margin:10px auto; 
+	margin:1rem auto; 
 	padding:10px 34px;
 	width:auto; 
-	height:auto;
-	
-	font-size:18px; line-height:18px;
+	height:auto;	
+	font-size:1.1rem; 
+	line-height:100%;
 	text-transform:uppercase;
-	border:0px;
-	
-	background:#a3a3a3;
-	color:#000;
-	
+	border:0px;	
+	background:#336699;
+	color:#000;	
 	-webkit-transition:200ms;
 	transition:200ms;
 }
 
 a.button:hover, input[type="submit"]:hover {
-	background:#383838;
+	background:#000000;
 	color:#fff;
 }
 
@@ -326,11 +344,12 @@ div.wpcf7-mail-sent-ng {
 
 
 .builtby {
-	max-width:90px; padding:20px 0px; 
+	max-width:72px; padding:12px 0px; 
 	margin:0px auto; 
-	display:block; float:none; clear:both; 
-	z-index:100; 
-	
+	display:block; 
+	float:none; 
+	clear:both; 
+	z-index:100; 	
 	opacity:0.45; 
 }
 
@@ -339,13 +358,6 @@ div.wpcf7-mail-sent-ng {
 	animation: shake .2s 1;
 	opacity:1.0; 
 }
-
-
-
-
-
-
-
 
 
 /* ANIMATIONS
