@@ -1,8 +1,8 @@
 <?php
 /*
- *  Author: Todd Motto | @toddmotto
- *  URL: html5blank.com | @html5blank
- *  Custom functions, support, custom post types and more.
+ *  Author: Squatch Creative | @squatchcreative
+ *  URL: squatch.us | @squatchcreative
+ *  Custom functions, support, custom post types and more. Modified from HTMLBlank @toddmotto
  */
 
 if (!isset($content_width)) { $content_width = 900;	}
@@ -10,7 +10,6 @@ if (!isset($content_width)) { $content_width = 900;	}
 if (function_exists('add_theme_support')){
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
-    add_image_size('custom-size', 700, 400, true); 
     add_theme_support('automatic-feed-links');
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
 }
@@ -68,6 +67,8 @@ function html5blank_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
+	
+	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.10.0/css/all.css' );
 
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
@@ -292,54 +293,111 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
-add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
-add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
-add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
-add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
-
+add_action('init', 'html5blank_header_scripts'); 
+add_action('get_header', 'enable_threaded_comments'); 
+add_action('wp_enqueue_scripts', 'html5blank_styles');
+add_action('init', 'register_html5_menu');
+add_action('widgets_init', 'my_remove_recent_comments_style');
+add_action('init', 'html5wp_pagination');
 // Remove Actions
-remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
-remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
-remove_action('wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
-remove_action('wp_head', 'wlwmanifest_link'); // Display the link to the Windows Live Writer manifest file.
-remove_action('wp_head', 'index_rel_link'); // Index link
-remove_action('wp_head', 'parent_post_rel_link', 10, 0); // Prev link
-remove_action('wp_head', 'start_post_rel_link', 10, 0); // Start link
-remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // Display relational links for the posts adjacent to the current post.
-remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
+remove_action('wp_head', 'feed_links_extra', 3); 
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link'); 
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
+remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 // Add Filters
-add_filter('avatar_defaults', 'html5blankgravatar'); // Custom Gravatar in Settings > Discussion
-add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
-add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
-add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
-add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
-add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
-add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
-add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
-add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
-add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
-add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
-add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
-add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-
+add_filter('avatar_defaults', 'html5blankgravatar'); 
+add_filter('body_class', 'add_slug_to_body_class');
+add_filter('widget_text', 'do_shortcode');
+add_filter('widget_text', 'shortcode_unautop'); 
+add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args');
+add_filter('the_category', 'remove_category_rel_from_category_list');
+add_filter('the_excerpt', 'shortcode_unautop'); 
+add_filter('the_excerpt', 'do_shortcode'); 
+add_filter('excerpt_more', 'html5_blank_view_article');
+add_filter('show_admin_bar', 'remove_admin_bar');
+add_filter('style_loader_tag', 'html5_style_remove'); 
+add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
+add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
 // Remove Filters
-remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
+remove_filter('the_excerpt', 'wpautop'); 
 
-// Shortcodes
-add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.
-add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [html5_shortcode_demo_2] in Pages, Posts now.
+//REMOVE MENUS
+function remove_menus(){
+	
+	$user = array( 'rcneil' );
+	$current_user = wp_get_current_user();
+	if(!in_array( $current_user->user_login, $user )) {
+  
+		//remove_menu_page( 'index.php' );                  //Dashboard
+		//remove_menu_page( 'edit.php' );                   //Posts
+		//remove_menu_page( 'upload.php' );                 //Media
+		//remove_menu_page( 'edit.php?post_type=page' );    //Pages
+		//remove_menu_page( 'edit-comments.php' );          //Comments
+		//remove_menu_page( 'themes.php' );                 //Appearance
+		remove_menu_page( 'plugins.php' );                //Plugins
+		//remove_menu_page( 'users.php' );                  //Users
+		remove_menu_page( 'tools.php' );                  //Tools
+		//remove_menu_page( 'options-general.php' );        //Settings
+		remove_menu_page( 'edit.php?post_type=acf' );		//ACF
+		remove_menu_page( 'edit.php?post_type=acf-field-group' );		//ACF PRO
+		remove_menu_page( 'wpcf7' );						//CF7
+		remove_menu_page( 'revslider' ); 					//REVOLUTION SLIDER
+	}
+}
+add_action( 'admin_menu', 'remove_menus', 999 );
+
+//CUSTOM ACF MIN HEIGHT ROWS
+add_filter('admin_head','textarea_temp_fix');
+function textarea_temp_fix() {
+	echo '<style type="text/css">.acf_postbox .field textarea {min-height:0 !important;}</style>';
+}
+//SQUATCH WP LOGO
+function add_squatch_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/squatch-wp-black.png);
+		border: 0px;
+		border-radius: 50%;
+		background-size: 81px 81px;
+		background-position: center center;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'add_squatch_logo' );
+
+//ALLOW WEBP
+function webp_upload_mimes($existing_mimes) {
+    $existing_mimes['webp'] = 'image/webp';
+    return $existing_mimes;
+}
+add_filter('mime_types', 'webp_upload_mimes');
+function webp_is_displayable($result, $path) {
+    if ($result === false) {
+        $displayable_image_types = array( IMAGETYPE_WEBP );
+        $info = @getimagesize( $path );
+        if (empty($info)) {
+            $result = false;
+        } elseif (!in_array($info[2], $displayable_image_types)) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+    }
+    return $result;
+}
+add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
+
 
 /*
 function create_post_type() {
@@ -366,12 +424,12 @@ function create_post_type() {
 		'menu_position' => 35,
         'hierarchical' => true, 
         'has_archive' => true,
-	'show_in_rest' => true,
+		'show_in_rest' => true,
         'supports' => array(
-            	'title',
-            	'editor',
-           	'thumbnail',
-		'revisions'
+			'title',
+			'editor',
+			'thumbnail',
+			'revisions'
         ), 
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
@@ -438,69 +496,6 @@ add_shortcode( 'newsletters', 'news_func' );
 
 
 */
-
-
-
-//REMOVE MENUS
-function remove_menus(){
-	
-	$user = array( 'rcneil' );
-	$current_user = wp_get_current_user();
-	if(!in_array( $current_user->user_login, $user )) {
-  
-		//remove_menu_page( 'index.php' );                  //Dashboard
-		//remove_menu_page( 'edit.php' );                   //Posts
-		//remove_menu_page( 'upload.php' );                 //Media
-		//remove_menu_page( 'edit.php?post_type=page' );    //Pages
-		//remove_menu_page( 'edit-comments.php' );          //Comments
-		//remove_menu_page( 'themes.php' );                 //Appearance
-		remove_menu_page( 'plugins.php' );                //Plugins
-		//remove_menu_page( 'users.php' );                  //Users
-		remove_menu_page( 'tools.php' );                  //Tools
-		//remove_menu_page( 'options-general.php' );        //Settings
-		remove_menu_page( 'edit.php?post_type=acf' );		//ACF
-		remove_menu_page( 'edit.php?post_type=acf-field-group' );		//ACF PRO
-		remove_menu_page( 'wpcf7' );						//CF7
-		remove_menu_page( 'revslider' ); 					//REVOLUTION SLIDER
-	}
-}
-add_action( 'admin_menu', 'remove_menus', 999 );
-
-
-
-
-
-//CUSTOM ACF MIN HEIGHT ROWS
-add_filter('admin_head','textarea_temp_fix');
-function textarea_temp_fix() {
-	echo '<style type="text/css">.acf_postbox .field textarea {min-height:0 !important;}</style>';
-}
-
-//USE FONT AWESOME IN THEME
-add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
-function enqueue_font_awesome() {
-	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.10.0/css/all.css' );
-}
-
-
-
-//SQUATCH WP LOGO
-function add_squatch_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/squatch-wp-black.png);
-		border: 0px;
-		border-radius: 50%;
-		background-size: 81px 81px;
-		background-position: center center;
-        }
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'add_squatch_logo' );
-
-
-
-
 
 
 
