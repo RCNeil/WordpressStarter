@@ -22,11 +22,12 @@
 }
 
 html {
-	font-size:16px;
+	font-size:18px;
 }
 
 body {
-	margin:0px; padding:0px;
+	margin:0px; 
+	padding:0px;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	background:#fff;
 	color:#000;
@@ -51,18 +52,25 @@ div {
 	height:auto; 	
 }
 .padded-container {
-	padding:64px 0px;
+	padding:4rem 0;
 }
 .row {
-	float:none; clear:both; margin:0px auto; padding:0px; 
-	width:100%; height:auto; 
+	clear:both; 
+	margin:0px auto; 
+	padding:0px; 
+	width:100%; 
+	height:auto; 
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:flex-start;
+	align-items:stretch;
 	max-width:1080px; 
 }
 div[class*='span'] {
-	float:left; margin:0px auto; padding:28px 28px; height:auto;
-   	-moz-box-sizing: border-box;
-   	-webkit-box-sizing: border-box;
-   	-ms-box-sizing: border-box;
+	float:left;
+	margin:0px auto; 
+	padding:28px 28px; 
+	height:auto;
    	box-sizing: border-box;
 }
 .span5 { width:5%; }
@@ -344,13 +352,18 @@ div.wpcf7-mail-sent-ng {
 
 
 .builtby {
-	max-width:72px; padding:12px 0px; 
-	margin:0px auto; 
+	max-width:96px; 
+	padding:0; 
+	margin:1rem auto; 
 	display:block; 
 	float:none; 
 	clear:both; 
 	z-index:100; 	
 	opacity:0.45; 
+}
+
+.builtby path {
+	fill:#000000;
 }
 
 .builtby:hover {
