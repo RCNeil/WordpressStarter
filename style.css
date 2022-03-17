@@ -362,7 +362,13 @@ div.wpcf7-mail-sent-ng {
 	opacity:0.45; 
 }
 
-.builtby path {
+.builtby svg {
+	display:block;
+	width:100%;
+	height:auto;
+}
+
+.builtby svg path {
 	fill:#000000;
 }
 
