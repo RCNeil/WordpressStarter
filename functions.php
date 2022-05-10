@@ -439,64 +439,41 @@ function create_post_type() {
 add_action( 'init', 'create_post_type' );  //INITIALIZE POST TYPE
 
 */
+add_theme_support ('align-wide');
 
-
-
-
-
-
-
-
-
-
-
-
-/* SHORTCODE and WPQUERY example
-=================================/
-//[news]
-function news_func( $atts ){
- ob_start(); //THIS STARTS YOUR SHORTCODE OUTPUT
-  ?>		  
-  
-<?php
-$args = array( 
-			'post_type' => 'post', 
-			'posts_per_page' => 10,
-			'orderby'		=> 'date',
-			'order'			=> 'DESC'
-		);
-$loop = new WP_Query( $args );
-while ( $loop->have_posts() ) : $loop->the_post();
-	
-?>
-	
-	<div class="row news-row">
-		<div class="span100">
-			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-			<p class="post-info"><span><?php the_author(); ?></span> &nbsp; <em><?php echo the_date(); ?></em></p>
-			<?php the_excerpt(); ?>
-			<p><a href="<?php the_permalink(); ?>" class="button">Read More</a></p>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-<?php
-	
-endwhile; 
-
-wp_reset_postdata();
-  
-?>
-  <?PHP
-  $output_string = ob_get_contents();
-  ob_end_clean();
-  return $output_string;
+function squatch_custom_block_categories( $categories ) {
+	return array_merge(
+		$categories,
+		[
+			[
+				'slug'  => 'squatch-blocks',
+				'title' => __( 'Squatch Blocks' ),
+			],
+		]
+	);
 }
-add_shortcode( 'newsletters', 'news_func' );
-
-
-*/
-
+add_action( 'block_categories', 'squatch_custom_block_categories', 10, 2 );
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {	
+	
+	// Check function exists.
+	if( function_exists('acf_register_block_type') ) {
+				
+		acf_register_block_type(array(
+			'name'				=> 'hero-image',
+			'title'				=> __('Hero Image'),
+			'description'		=> __('A custom block built by Squatch Creative'),
+			'render_template'	=> 'includes/blocks/hero-image.php',
+			'category'			=> 'squatch-blocks',
+			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
+			'keywords'			=> array( 'block' ),
+			'mode'	=> 'edit',
+			'supports' => array('mode' => false),
+			'align' => 'wide',
+		));
+		
+	}
+}
 
 
 ?>
