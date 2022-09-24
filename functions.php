@@ -424,7 +424,19 @@ function my_acf_init_block_types() {
 			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
 			'keywords'			=> array( 'block' ),
 			'mode'	=> 'edit',
-			'supports' => array('mode' => false),
+			'supports' => array('mode' => false, 'anchor' => true),
+			'align' => 'wide',
+		));
+		acf_register_block_type(array(
+			'name'				=> 'innerblock-example',
+			'title'				=> __('Innerblocks Example'),
+			'description'		=> __('A custom block built by Squatch Creative'),
+			'render_template'	=> 'includes/blocks/innerblocks-example.php',
+			'category'			=> 'squatch-blocks',
+			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
+			'keywords'			=> array( 'block' ),
+			'mode'	=> 'preview',
+			'supports' => array('anchor' => true, 'jsx' => true),
 			'align' => 'wide',
 		));
 		
