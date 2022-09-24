@@ -1,0 +1,101 @@
+{
+    "version": 2,
+    "settings": {
+		"layout": {
+			"contentSize": "969px",
+			"wideSize": "1280px"
+		},
+		"spacing": {
+			"blockGap" : true,
+			"margin": true,
+			"padding": true,
+			"units": [ "rem", "px", "%"]
+		},
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#016FB9",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#6d8ea0",
+					"name": "Secondary"
+				},
+				{
+					"slug": "accent",
+					"color": "#22aed1",
+					"name": "Accent"
+				},
+				{
+					"slug": "gray",
+					"color": "#f2f2f2",
+					"name": "Gray"
+				}
+			]
+		},
+		"typography": {
+			"lineHeight": true,
+			"fontSizes": [
+				{
+					"slug": "small",
+					"size": "0.85rem",
+					"name": "Small"
+				},
+				{
+					"slug": "medium",
+					"size": "1.25rem",
+					"name": "medium"
+				},
+				{
+					"slug": "large",
+					"size": "1.75rem",
+					"name": "Large"
+				},
+				{
+					"slug": "x-large",
+					"size": "2.5rem",
+					"name": "X-Large"
+				}
+			]
+		},
+		"styles" : {
+			"blocks": {
+				"core/buttons": {
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"color": "#ffffff"
+					}
+				},
+				"core/button": {
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"color": "#fffffff"
+					}
+				}
+			}
+		},
+		"blocks": {
+				"core/buttons": {
+					"border": {
+						"radius": "0px"
+					}
+				},
+				"core/button": {
+					"border": {
+						"radius": "0px"
+					}
+				},
+				"core/heading": {
+					"spacing": {
+						"margin": true
+					}
+				},
+				"core/cover": {
+					"minHeight" : 300,
+					"minHeightUnit": "px"
+				}
+			}
+	}
+}

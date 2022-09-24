@@ -1,0 +1,23 @@
+body {
+	font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.tiny-mce .acf-editor-wrap iframe {
+    min-height: 100px !important;
+    max-height: 200px !important;
+	overflow:hidden !important;
+}
+
+i.mce-ico.mce-i-fullscreen {
+    display: none !important;
+}
+
+i.mce-ico.mce-i-wp_more {
+    display: none !important;
+}
+
+.wp-block {
+	margin-left:auto;
+	margin-right:auto;
+	max-width:100%;
+}

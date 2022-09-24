@@ -397,6 +397,41 @@ function webp_is_displayable($result, $path) {
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
+add_theme_support ('align-wide');
+add_theme_support('editor-styles');
+add_editor_style( 'editor-styles.css' );
+function squatch_custom_block_categories( $categories ) {
+	$custom_category = array(
+		'slug'  => 'squatch-blocks',
+		'title' => 'Squatch Blocks'
+	);
+	array_unshift( $categories,$custom_category	);
+	return $categories;
+}
+add_action( 'block_categories_all', 'squatch_custom_block_categories', 10, 2 );
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {	
+	
+	// Check function exists.
+	if( function_exists('acf_register_block_type') ) {
+				
+		acf_register_block_type(array(
+			'name'				=> 'hero-image',
+			'title'				=> __('Hero Image'),
+			'description'		=> __('A custom block built by Squatch Creative'),
+			'render_template'	=> 'includes/blocks/hero-image.php',
+			'category'			=> 'squatch-blocks',
+			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
+			'keywords'			=> array( 'block' ),
+			'mode'	=> 'edit',
+			'supports' => array('mode' => false),
+			'align' => 'wide',
+		));
+		
+	}
+}
+
+
 
 
 /*
@@ -439,41 +474,6 @@ function create_post_type() {
 add_action( 'init', 'create_post_type' );  //INITIALIZE POST TYPE
 
 */
-add_theme_support ('align-wide');
-
-function squatch_custom_block_categories( $categories ) {
-	return array_merge(
-		$categories,
-		[
-			[
-				'slug'  => 'squatch-blocks',
-				'title' => __( 'Squatch Blocks' ),
-			],
-		]
-	);
-}
-add_action( 'block_categories', 'squatch_custom_block_categories', 10, 2 );
-add_action('acf/init', 'my_acf_init_block_types');
-function my_acf_init_block_types() {	
-	
-	// Check function exists.
-	if( function_exists('acf_register_block_type') ) {
-				
-		acf_register_block_type(array(
-			'name'				=> 'hero-image',
-			'title'				=> __('Hero Image'),
-			'description'		=> __('A custom block built by Squatch Creative'),
-			'render_template'	=> 'includes/blocks/hero-image.php',
-			'category'			=> 'squatch-blocks',
-			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
-			'keywords'			=> array( 'block' ),
-			'mode'	=> 'edit',
-			'supports' => array('mode' => false),
-			'align' => 'wide',
-		));
-		
-	}
-}
 
 
 ?>

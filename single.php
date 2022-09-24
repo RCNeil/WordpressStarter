@@ -1,42 +1,32 @@
 <?php get_header(); ?>
-<div class="container">
-	<div class="row">
-		<div class="span100">
-			<main role="main">
-			<section>
-			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php if ( has_post_thumbnail()) : ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php the_post_thumbnail();  ?>
-						</a>
-					<?php endif; ?>
-
-
-					<h1><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
-
-					<span class="date"><?php the_time('F j, Y'); ?> </span>
-					<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-
-
-					<?php the_content(); ?>
-					<?php comments_template(); ?>
-
-				</article>
-
-
-			<?php endwhile; ?>
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+<main class="post-main">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<section class="feature-image">
+			<?php if ( has_post_thumbnail()) : ?>
+				<?php the_post_thumbnail();  ?>
 			<?php endif; ?>
-
-			</section>
-			</main>
-		</div>
-	</div>
-<div class="clear"></div>
-</div>
-
-<?php //get_sidebar(); ?>
-
+		</section>
+		<section class="post-content">
+			<div class="row">
+				<?php $terms = get_the_terms($post->ID, 'category'); ?>
+				<ul class="categories">
+					<?php foreach($terms as $term) { ?>
+						<li><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+					<?php } ?>
+				</ul>
+				<h1><?php the_title(); ?></h1>
+				<ul class="post-meta">
+					<li class="author"><i class="fa-regular fa-circle-user"></i> <?php the_author_posts_link(); ?></li>
+					<li class="date"><i class="fa-solid fa-calendar-days"></i>  <?php the_time('F j, Y'); ?></li>				
+					<li class="time"><i class="fa-regular fa-clock"></i> <?php the_time('h:i a'); ?></li>
+				</ul>
+				<?php the_content(); ?>
+				<?php //comments_template(); ?>
+				<?php get_template_part('includes/social-share'); ?>
+			</div>
+		</section>
+	</article>
+</main>
+<?php endwhile; endif; ?>
 <?php get_footer(); ?>
