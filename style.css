@@ -24,6 +24,7 @@
 .alignfull, .container.alignfull {
 	width:100%;
 	max-width:100%;
+	margin:0;
 }
 
 @media all and (min-width:1300px) {
@@ -35,8 +36,8 @@
 		left: 0;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 0;
-		margin-bottom: 0;
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
 	}
 	
 }
@@ -44,7 +45,7 @@
 
 article > *:not(.alignwide, .alignfull) {
     width: 968px;
-    margin: 0 auto;
+    margin: 1.25rem auto;
 	max-width:100%;
 }
 
@@ -166,6 +167,10 @@ p {
 	line-height:140%;
 	margin:1.1rem 0;
 	padding:0;
+}
+article ul li {
+    font-size: 1.1rem;
+    line-height: 150%;
 }
 a {
 	transition: 180ms ease all; 

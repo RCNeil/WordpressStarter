@@ -2,7 +2,7 @@
     "version": 2,
     "settings": {
 		"layout": {
-			"contentSize": "969px",
+			"contentSize": "968px",
 			"wideSize": "1280px"
 		},
 		"spacing": {
@@ -10,6 +10,12 @@
 			"margin": true,
 			"padding": true,
 			"units": [ "rem", "px", "%"]
+		},
+		"border": {
+			"customColor": true,
+			"customRadius": true,
+			"customStyle": true,
+			"customWidth": true
 		},
 		"color": {
 			"palette": [
@@ -59,43 +65,57 @@
 					"name": "X-Large"
 				}
 			]
-		},
-		"styles" : {
-			"blocks": {
-				"core/buttons": {
-					"color": {
-						"background": "var(--wp--preset--color--accent)",
-						"color": "#ffffff"
-					}
-				},
-				"core/button": {
-					"color": {
-						"background": "var(--wp--preset--color--accent)",
-						"color": "#fffffff"
-					}
-				}
-			}
-		},
+		}
+	},
+	"styles" : {
 		"blocks": {
-				"core/buttons": {
-					"border": {
-						"radius": "0px"
-					}
+			"core/button": {
+				"border": {
+					"radius": "0px",
+					"color" : "var(--wp--preset--color--primary)"
 				},
-				"core/button": {
-					"border": {
-						"radius": "0px"
-					}
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "#ffffff"
 				},
-				"core/heading": {
-					"spacing": {
-						"margin": true
+				":hover": {
+					"typography": {
+						"textDecoration": "none"
+					},
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"text": "#ffffff"
 					}
-				},
-				"core/cover": {
-					"minHeight" : 300,
-					"minHeightUnit": "px"
 				}
 			}
+		}, 
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "#ffffff"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "none"
+					},
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"text": "#ffffff"
+					}
+				}
+			}
+		}
+	},
+	"blocks": {
+		"core/heading": {
+			"spacing": {
+				"margin": true
+			}
+		},
+		"core/cover": {
+			"minHeight" : 300,
+			"minHeightUnit": "px"
+		}
 	}
 }
