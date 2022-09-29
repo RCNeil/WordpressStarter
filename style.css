@@ -218,6 +218,50 @@ overlay {
     background: rgba(0,0,0,.5);
 }
 
+/* FORMS & BUTTONS
+============================== */
+
+input, textarea {
+	-moz-box-sizing: border-box;
+   	-webkit-box-sizing: border-box;
+   	-ms-box-sizing: border-box;
+   	box-sizing: border-box;
+	display:block;
+	max-width:100%;
+	width:100%;
+	height:auto;
+	padding:12px 24px;
+	margin:8px auto; 
+	font-size:1rem;
+	line-height:100%;	
+	border:1px var(--wp--preset--color--secondary) solid; 
+	color:var(--wp--preset--color--gray);
+}
+
+a.button, input[type="submit"] {
+	display:inline-block; position:relative;
+	margin:1rem auto; 
+	padding:10px 34px;
+	width:auto; 
+	height:auto;	
+	font-size:1.1rem; 
+	line-height:100%;
+	text-transform:uppercase;
+	border:0px;	
+	background:var(--wp--preset--color--accent);
+	color:white;	
+	transition:180ms ease-in-out all;
+}
+
+a.button:hover, input[type="submit"]:hover {
+	background:#000000;
+	color:white;
+}
+.wp-block-button__link:hover {
+    background: black;
+    color: white;
+}
+
 
 
 
@@ -264,106 +308,6 @@ ul.menu li a:hover {
 .mobile-menu {
 	display:none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FORMS
-============================== */
-
-input, textarea {
-	-moz-box-sizing: border-box;
-   	-webkit-box-sizing: border-box;
-   	-ms-box-sizing: border-box;
-   	box-sizing: border-box;
-	display:block;
-	max-width:100%;
-	width:100%;
-	height:auto;
-	padding:12px 24px;
-	margin:8px auto; 
-	font-size:1rem;
-	line-height:100%;	
-	border:1px #ccc solid; 
-}
-
-a.button, input[type="submit"] {
-	display:inline-block; position:relative;
-	margin:1rem auto; 
-	padding:10px 34px;
-	width:auto; 
-	height:auto;	
-	font-size:1.1rem; 
-	line-height:100%;
-	text-transform:uppercase;
-	border:0px;	
-	background:#336699;
-	color:#000;	
-	-webkit-transition:200ms;
-	transition:200ms;
-}
-
-a.button:hover, input[type="submit"]:hover {
-	background:#000000;
-	color:#fff;
-}
-
-
-div.wpcf7-response-output {
-    margin: 0px auto;
-    box-sizing: border-box;
-    padding: 18px;
-    text-align: center;
-}
-
-div.wpcf7-mail-sent-ok {
-    border: 2px solid #99c387;
-    background: #d4fbb2;
-    color: #000;
-}
-
-div.wpcf7-validation-errors {
-    border: 2px solid #d0c419;
-    background: #dcdc9b;
-    color: #000;
-}
-
-div.wpcf7-spam-blocked {
-    border: 2px solid #d49d3a;
-    background: #dcc497;
-    color: #000;
-}
-
-div.wpcf7-mail-sent-ng {
-    border: 2px solid #f35656;
-    background: #e4b2b2;
-    color: black;
-}
-
-.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output {
-    border-color: #ffb900;
-    background: #fbd573;
-}
-
-.wpcf7 form.sent .wpcf7-response-output {
-    border-color: #46b450;
-    background: #92ca97;
-}
-
-.wpcf7-form-control-wrap.move-in-date input::before {
-    content: 'Move In Date';
-    margin-right: 10px;
-}
-
 
 
 
