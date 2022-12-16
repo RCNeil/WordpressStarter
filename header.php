@@ -2,9 +2,15 @@
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
-<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+<title><?php wp_title(''); ?></title>
 
-<link href="//www.google-analytics.com" rel="dns-prefetch">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('template_url'); ?>/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php bloginfo('template_url'); ?>/images/favicon-16x16.png">
+<link rel="manifest" href="<?php bloginfo('template_url'); ?>/images/site.webmanifest">
+<link rel="mask-icon" href="<?php bloginfo('template_url'); ?>/images/safari-pinned-tab.svg" color="#000000">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
 <link href="<?php bloginfo('template_url'); ?>/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="<?php bloginfo('template_url'); ?>/images/favicon.ico" rel="icon" type="image/x-icon">
 
