@@ -406,6 +406,7 @@ add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 
 add_theme_support ('align-wide');
+add_theme_support ('responsive-embeds');
 add_theme_support('editor-styles');
 add_editor_style( 'editor-styles.css' );
 function squatch_custom_block_categories( $categories ) {
