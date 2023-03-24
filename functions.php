@@ -72,7 +72,7 @@ function html5blank_styles()
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize');
 	
-	//wp_enqueue_style( 'fancybox', get_stylesheet_directory_uri() . '/js/lib/jquery.fancybox.min.js' );
+	//wp_enqueue_style( 'fancybox', get_stylesheet_directory_uri() . '/js/lib/jquery.fancybox.min.css' );
 	
 	//wp_enqueue_style( 'slick', get_template_directory_uri() . '/js/lib/slick.css' );
 	
