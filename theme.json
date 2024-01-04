@@ -5,6 +5,7 @@
 			"contentSize": "968px",
 			"wideSize": "1280px"
 		},
+	    	"appearanceTools" : true,
 		"spacing": {
 			"blockGap" : true,
 			"margin": true,
