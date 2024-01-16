@@ -17,9 +17,9 @@
 				</ul>
 				<h1><?php the_title(); ?></h1>
 				<ul class="post-meta">
-					<li class="author"><i class="fa-regular fa-circle-user"></i> <?php the_author_posts_link(); ?></li>
-					<li class="date"><i class="fa-solid fa-calendar-days"></i>  <?php the_time('F j, Y'); ?></li>				
-					<li class="time"><i class="fa-regular fa-clock"></i> <?php the_time('h:i a'); ?></li>
+					<li class="author"><?php the_author_posts_link(); ?></li>
+					<li class="date"><?php the_time('F j, Y'); ?></li>				
+					<li class="time"><?php the_time('h:i a'); ?></li>
 				</ul>
 				<?php the_content(); ?>
 				<?php //comments_template(); ?>

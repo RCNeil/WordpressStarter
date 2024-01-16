@@ -189,6 +189,21 @@ a.large-link {
 	height:100%;
 	z-index:5;
 }
+image-overlay {
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:2;
+	background:rgba(0,0,0,0.5);
+}
+figure {
+	display:block;
+	position:relative;
+	margin:0 auto;
+}
 img, a img {
 	display:inline-block; 
 	max-width:100%; 
@@ -196,6 +211,12 @@ img, a img {
 	border:0px;
 	padding:0px;
 	margin:0px auto;
+}
+svg {
+	display:block;
+	position:relative;
+	width:100%;
+	height:auto;
 }
 small {font-size:70%;}
 .bold, strong {font-weight:bold;}
@@ -216,54 +237,41 @@ hr.wp-block-separator {
     height: 1px;
     margin: 1rem auto;
 }
-overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    background: rgba(0,0,0,.5);
-}
 
 /* FORMS & BUTTONS
 ============================== */
 
 input, textarea {
-	-moz-box-sizing: border-box;
-   	-webkit-box-sizing: border-box;
-   	-ms-box-sizing: border-box;
    	box-sizing: border-box;
 	display:block;
 	max-width:100%;
 	width:100%;
 	height:auto;
-	padding:12px 24px;
+	padding:0.65rem 1.75rem;
 	margin:8px auto; 
 	font-size:1rem;
 	line-height:100%;	
-	border:1px var(--wp--preset--color--secondary) solid; 
-	color:var(--wp--preset--color--gray);
+	border:1px #000 solid; 
+	color:#000;
 }
 
-a.button, input[type="submit"] {
-	display:inline-block; position:relative;
-	margin:1rem auto; 
-	padding:10px 34px;
+a.button, input[type="submit"], button {
+	display:inline-flex; 
+	position:relative;
+	margin:0 auto; 
+	padding:0.65rem 1.75rem;
 	width:auto; 
 	height:auto;	
-	font-size:1.1rem; 
+	font-size:1rem; 
 	line-height:100%;
-	text-transform:uppercase;
 	border:0px;	
-	background:var(--wp--preset--color--accent);
+	background:#000;
 	color:white;	
 	transition:180ms ease-in-out all;
 }
 
 a.button:hover, input[type="submit"]:hover {
-	background:#000000;
+	background:#000;
 	color:white;
 }
 .wp-block-button__link:hover {
@@ -287,26 +295,27 @@ a.button:hover, input[type="submit"]:hover {
 ================================*/
 
 ul.menu {
-	list-style:none; margin:0px; padding:0px;
-	display:inline-block;
+	list-style:none; 
+	margin:0px; 
+	padding:0px;
+	display:flex;
 	position:relative;
+	flex-flow:row wrap;
+	gap:1rem;
 }
 
 ul.menu li {
-	list-style:none; margin:0px; padding:0px;
-	display:inline-block;
+	display:block;
 	position:relative;
 }
 
 ul.menu li a {
 	display:block;
-	height:auto; width:auto;	
-	margin:0px; padding:18px 16px 18px 16px;
-	text-transform:uppercase;
-	font-size:18px; 
-	line-height:26px;
-	font-weight:400;
-	color:#3d3d3d;
+	height:auto; 
+	width:auto;	
+	margin:0px; 
+	padding:0.65rem 1.25rem;
+	color:#000000;
 	text-decoration:none;
 }
 
@@ -350,7 +359,41 @@ ul.menu li a:hover {
 
 
 
+/* POSTS
+===================================== */
 
+ul.pagination {
+    padding: 1.25rem 0;
+    margin:1.25rem auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 0.75rem;
+}
+
+ul.pagination li a {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 100%;
+    gap: 0.65rem;
+}
+
+ul.pagination li a svg {
+    width: 14px;
+    height: auto;
+}
+
+li.next-link {
+    margin-left: auto;
+}
+
+li.prev-link svg {
+    transform: rotate(180deg);
+}
 
 
 
@@ -399,30 +442,9 @@ ul.menu li a:hover {
 	-webkit-animation:slideIn 1s forwards;
 	animation:slideIn 1s forwards;
 }
-
-@-webkit-keyframes slideIn {
-	from 	{ opacity:0.0; -webkit-transform: translate(0px,0px); }
-	to		{ opacity:1.0; -webkit-transform: translate(0,0); }
-	}
-
-@-keyframes slideIn {
+@keyframes slideIn {
 	from 	{ opacity:0.0; transform: translate(0px,0px); }
 	to		{ opacity:1.0; transform: translate(0,0); }
-}
-
-
-@-webkit-keyframes shake {
-	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
-	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
-	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
-	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
-	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
-	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
-	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
-	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
-	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
-	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
-	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 @keyframes shake {
@@ -493,30 +515,11 @@ ul.menu li a:hover {
 		height: 100%;
 		align-items: center;
 		justify-content: center;
-		background: #383838;
+		background: #FFFFFF;
 		z-index: 900;
 		flex-flow: column wrap;
 	}
 
-	ul.menu {
-		display:block;
-		position:relative;
-	}
-
-	ul.menu li {
-		display: block;
-		float: none;
-		border:0px;
-	}
-
-	ul.menu li a {
-		text-align: center;
-		color:#fff;
-	}
-	
-	ul.menu li a:hover {
-		color:#fff;
-	}
 
 
 
