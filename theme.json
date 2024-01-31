@@ -5,7 +5,7 @@
 			"contentSize": "968px",
 			"wideSize": "1280px"
 		},
-	    	"appearanceTools" : true,
+	    "appearanceTools" : true,
 		"spacing": {
 			"blockGap" : true,
 			"margin": true,
@@ -44,26 +44,43 @@
 		},
 		"typography": {
 			"lineHeight": true,
+			"fluid" : true,
 			"fontSizes": [
 				{
 					"slug": "small",
 					"size": "0.85rem",
-					"name": "Small"
+					"name": "Small",
+					"fluid" : {
+						"min" : "0.85rem",
+						"max" : "0.85rem"
+					}
 				},
 				{
 					"slug": "medium",
 					"size": "1.25rem",
-					"name": "medium"
+					"name": "medium",
+					"fluid" : {
+						"min" : "1.15rem",
+						"max" : "1.25rem"
+					}
 				},
 				{
 					"slug": "large",
 					"size": "1.75rem",
-					"name": "Large"
+					"name": "Large",
+					"fluid" : {
+						"min" : "1.5rem",
+						"max" : "1.75rem"
+					}
 				},
 				{
 					"slug": "x-large",
 					"size": "2.5rem",
-					"name": "X-Large"
+					"name": "X-Large",
+					"fluid" : {
+						"min" : "2rem",
+						"max" : "2.5rem"
+					}
 				}
 			]
 		}
