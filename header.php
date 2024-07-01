@@ -42,7 +42,7 @@ tests: {}
 			</nav>
 		</div>
 	</div>
-	<div class="mobile-menu"><i class="fa fa-bars" aria-hidden="true"></i></div>
+	<div class="menu-toggle">MENU</div>
 <div class="clear"></div>
 </div>
 

@@ -11,17 +11,31 @@
 		}
 	}
 
-	mobileToggle();
-	function mobileToggle() {
-		$('.mobile-menu').click(function(e) {
+	menuToggle();
+	function menuToggle() {
+		$('.menu-toggle').click(function(e) {
 			e.preventDefault();
 			$(this).blur();
-			if($('.header').hasClass('opened')) {
-				$('.header').removeClass('opened');
+			if($('body').hasClass('nav-opened')) {
+				$('body').removeClass('nav-opened');
 			} else {
-				$('.header').addClass('opened');
+				$('body').addClass('nav-opened');
 			}
 		});	
+	}
+	
+	$(window).scroll(function() {
+		headerScroll();
+	});
+	headerScroll();
+	function headerScroll() {
+		var windowHeight = 120;
+		var windowTop = $(document).scrollTop();	
+		if(  windowTop > windowHeight) {
+			$('body').addClass('header-scrolled'); 
+		} else {
+			$('body').removeClass('header-scrolled'); 	
+		}
 	}
 
 }); })(jQuery, this);
