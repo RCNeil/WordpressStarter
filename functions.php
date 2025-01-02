@@ -14,6 +14,18 @@ if (function_exists('add_theme_support')){
 	add_theme_support('editor-styles');
 	add_editor_style( 'editor-styles.css' );
     load_theme_textdomain('squatch', get_template_directory() . '/languages');
+	
+	remove_image_size('1536x1536');
+	remove_image_size('2048x2048');
+	update_option( 'medium_size_h', 0 );
+	update_option( 'medium_size_w', 0 );
+	update_option( 'medium_large_size_w', 0 );
+	update_option( 'medium_large_size_h', 0 );
+	update_option( 'large_size_h', 0 );
+	update_option( 'large_size_w', 0 );
+	update_option('thumbnail_size_w', 720);
+    update_option('thumbnail_size_h', 720);
+	update_option('thumbnail_crop', 1);
 }
 
 function squatch_header_scripts() {
