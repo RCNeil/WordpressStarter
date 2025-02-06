@@ -4,14 +4,12 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <title><?php wp_title(''); ?></title>
 
-<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('template_url'); ?>/images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="<?php bloginfo('template_url'); ?>/images/favicon-16x16.png">
-<link rel="manifest" href="<?php bloginfo('template_url'); ?>/images/site.webmanifest">
-<link rel="mask-icon" href="<?php bloginfo('template_url'); ?>/images/safari-pinned-tab.svg" color="#000000">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
-<link href="<?php bloginfo('template_url'); ?>/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="<?php bloginfo('template_url'); ?>/images/favicon.svg" />
+<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_url'); ?>/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?>" />
+<link rel="manifest" href="<?php bloginfo('template_url'); ?>/images/site.webmanifest" />
 <link href="<?php bloginfo('template_url'); ?>/images/favicon.ico" rel="icon" type="image/x-icon">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
