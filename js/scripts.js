@@ -1,5 +1,7 @@
 (function ($, root, undefined) { $(function () { 'use strict';
 
+	console.log("%c 👣 Built By Squatch Creative https://squatchcreative.com","color: #383838; font-size: 13px; text-align: center; padding: 6px; border: 2px solid #ffd747;");
+
 	contentAnimations();
 	function contentAnimations() {
 		if(Modernizr.csstransitions) {			
