@@ -2,9 +2,9 @@
 	Theme Name: 
 	Theme URI: 
 	Description: WP Theme for 
-	Version: 1
+	Version: 1.001
 	Author: Squatch Creative
-	Author URI: https://squatch.us
+	Author URI: https://squatchcreative.com
 
 	License: MIT
 	License URI: http://opensource.org/licenses/mit-license.php
@@ -20,7 +20,7 @@
 /*WP CORE
 =========================*/
 
-*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility}.alignnone{margin:5px 20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px auto}.alignright{float:right;margin:5px 0 20px 20px}.alignleft{float:left;margin:5px 20px 20px 0}a img.alignright{float:right;margin:5px 0 20px 20px}a img.alignleft,a img.alignnone{margin:5px 20px 20px 0}a img.alignleft{float:left}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{background:#FFF;border:1px solid #F0F0F0;max-width:96%;padding:5px 3px 10px;text-align:center}.wp-caption.alignleft,.wp-caption.alignnone{margin:5px 20px 20px 0}.wp-caption.alignright{margin:5px 0 20px 20px}.wp-caption img{border:0;height:auto;margin:0;max-width:98.5%;padding:0;width:auto}.gallery-caption,.wp-caption .wp-caption-text{font-size:11px;line-height:17px;margin:0;padding:0 4px 5px}
+*,:after,:before{-moz-box-sizing:border-box;box-sizing:border-box;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility}.wp-caption{background:#FFF;border:1px solid #F0F0F0;max-width:96%;padding:5px 3px 10px;text-align:center}.wp-caption.alignleft,.wp-caption.alignnone{margin:5px 20px 20px 0}.wp-caption.alignright{margin:5px 0 20px 20px}.wp-caption img{border:0;height:auto;margin:0;max-width:98.5%;padding:0;width:auto}.gallery-caption,.wp-caption .wp-caption-text{font-size:11px;line-height:17px;margin:0;padding:0 4px 5px}
 
 .alignfull, .container.alignfull {
 	width:100%;
@@ -28,23 +28,19 @@
 	margin:0;
 }
 
-@media all and (min-width:1300px) {
-	.alignwide,
-	.container.alignwide {
-		width: var(--row);
-		max-width: 100%;
-		position: relative;
-		left: 0;
-		margin:0 auto;
-	}
-	
+.alignwide,
+.container.alignwide {
+	width: var(--row);
+	max-width: calc(100% - 2rem);
+	position: relative;
+	left: 0;
+	margin:0 auto;
 }
-
 
 article > *:not(.alignwide, .alignfull) {
     width: 968px;
     margin: 0 auto;
-	max-width:100%;
+	max-width: calc(100% - 2rem);
 }
 
 .wp-block-image {
@@ -61,7 +57,7 @@ article > *:not(.alignwide, .alignfull) {
 }
 
 ::selection {
-    background-color: var(--wp--preset--color--primary);
+    background-color:#000;
     color: #ffffff;
 }
 
@@ -85,7 +81,7 @@ div {
 .body-wrapper {
 	max-width:100%;
 	width:100%; 
-	overflow:hidden; 
+	overflow:clip; 
 }
 .container {
 	float:none; 
@@ -96,7 +92,6 @@ div {
 	height:auto; 	
 }
 .row {
-	clear:both; 
 	margin:0px auto; 
 	padding:0px; 
 	width:100%; 
@@ -108,11 +103,9 @@ div {
 	max-width:var(--row); 
 }
 div[class*='span'] {
-	float:left;
-	margin:0px auto; 
-	padding:28px 28px; 
+	margin:0px; 
+	padding:0;
 	height:auto;
-   	box-sizing: border-box;
 }
 .span5 { width:5%; }
 .span10 { width:10%; }
@@ -137,43 +130,43 @@ div[class*='span'] {
 .span100 { width:100%; }
 
 h1 {
-	font-size:3rem;
-	line-height:135%;
+	font-size:3.5rem;
+	line-height:125%;
 	margin:1.5rem 0;
 }
 
 h2 {
-	font-size:2.4rem;
-	line-height:135%;
+	font-size:2.75rem;
+	line-height:125%;
 	margin:1.5rem 0;
 }
 
 h3 {
-	font-size:1.8rem;
-	line-height:135%;
+	font-size:1.75rem;
+	line-height:125%;
 	margin:1.5rem 0;
 }
 
 h4 {
-	font-size:1.4rem;
+	font-size:1.5rem;
 	line-height:135%;
 	margin:1rem 0;
 }
 
 p {
-	font-size:1.1rem;
+	font-size:1rem;
 	line-height:140%;
 	margin:1.1rem 0;
 	padding:0;
 }
 article ul li {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 150%;
 }
 a {
 	transition: var(--transition); 
 	text-decoration:none;
-	color:var(--wp--preset--color--primary);
+	color:red;
 }
 a:hover {
 	color:#000000;
@@ -202,7 +195,12 @@ figure {
 	position:relative;
 	margin:0 auto;
 }
-img, a img {
+figure img, a img {
+	display:block;
+	width:100%;
+	height:auto;
+}
+img {
 	display:inline-block; 
 	max-width:100%; 
 	height:auto; 
@@ -215,6 +213,7 @@ svg {
 	position:relative;
 	width:100%;
 	height:auto;
+	max-width:100%;
 }
 small {font-size:70%;}
 .bold, strong {font-weight:bold;}
@@ -229,9 +228,7 @@ hr.wp-block-separator {
     clear: both;
     position: relative;
     max-width: 100%;
-    width: 100%;
     border: 0px;
-    border-bottom: 1px #dfdfdf solid;
     height: 1px;
     margin: 0 auto;
 }
@@ -253,7 +250,10 @@ input, textarea, select {
 	color:#000;
 }
 
-a.button, input[type="submit"], button {
+a.button, 
+input[type="submit"], 
+button, 
+.wp-block-button a {
 	display:inline-flex; 
 	position:relative;
 	margin:0 auto; 
@@ -268,14 +268,14 @@ a.button, input[type="submit"], button {
 	transition:var(--transition);
 }
 
-a.button:hover, input[type="submit"]:hover {
+a.button:hover, 
+button:hover,
+input[type="submit"]:hover,
+.wp-block-button a:hover {
 	background:#000;
 	color:white;
 }
-.wp-block-button__link:hover {
-    background: black;
-    color: white;
-}
+
 
 
 
@@ -404,7 +404,7 @@ li.prev-link svg {
 .builtby {
 	max-width:96px; 
 	padding:0; 
-	margin:1rem auto; 
+	margin:1rem; 
 	display:block; 
 	float:none; 
 	clear:both; 
@@ -423,7 +423,6 @@ li.prev-link svg {
 }
 
 .builtby:hover {
-	-webkit-animation:shake .2s 1;
 	animation: shake .2s 1;
 	opacity:1.0; 
 }
@@ -431,13 +430,10 @@ li.prev-link svg {
 
 /* ANIMATIONS
 ========================*/
-@supports (-webkit-animation:test) or (animation:test) {
-
 .animate {
 	opacity:0.0; 
 }		
 .animation {
-	-webkit-animation:slideIn 1s forwards;
 	animation:slideIn 1s forwards;
 }
 @keyframes slideIn {
@@ -461,22 +457,13 @@ li.prev-link svg {
 
 
 
-
-
-
-}
-
-
-
 /**** MEDIA QUERIES *****/
 /**** MEDIA QUERIES *****/
 /**** MEDIA QUERIES *****/
-@media all and (max-width:960px) {
+@media all and (max-width:968px) {
 
 
 	div[class*='span'] {
-		float:none; 
-		clear:both; 
 		width:100%; 
 	}
 	
@@ -490,7 +477,7 @@ li.prev-link svg {
 		top: 50%;
 		margin-top: -24px;
 		right: 24px;
-		z-index: 1000;
+		z-index:999;
 		color: #383838;
 		width: 48px;
 		height: 48px;
@@ -500,22 +487,23 @@ li.prev-link svg {
 		cursor: pointer;
 	}
 	
-	.header.opened .menu-toggle {
-		color:#fff;
-	}
-
-	.header.opened nav.nav {
+	.header nav.nav {
 		display: flex;
 		position: fixed;
 		top: 0;
-		left: 0;
+		left: calc(100vw + 2rem);
 		width: 100%;
 		height: 100%;
 		align-items: center;
 		justify-content: center;
 		background: #FFFFFF;
-		z-index: 900;
+		z-index: 998;
 		flex-flow: column wrap;
+		transition:var(--transition);
+	}
+
+	body.nav-opened nav.nav {
+		left:0;
 	}
 
 

@@ -34,15 +34,13 @@ tests: {}
 <header>
 <div class="header container clear" role="banner">
 	<div class="row">
-		<div class="span100">
-			<nav class="nav" role="navigation">
-				<?php wp_nav_menu(array('theme_location' => 'header-menu' )); ?>
-			</nav>
-		</div>
-	</div>
-	<div class="menu-toggle">MENU</div>
-<div class="clear"></div>
+		<a href="<?php echo bloginfo('url'); ?>" title="<?php echo bloginfo('name'); ?>">LOGO</a>
+		<nav class="nav" role="navigation">
+			<?php wp_nav_menu(array('theme_location' => 'header-menu' )); ?>
+		</nav>
+		<div class="menu-toggle">MENU</div>
+	</div>	
 </div>
-
+<div class="header-spacer"></div>
 </header>
 <!-- /header -->
