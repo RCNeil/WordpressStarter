@@ -191,6 +191,24 @@ function add_squatch_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'add_squatch_logo' );
+function squatch_admin_footer_text() {
+	?>
+	<span id="footer-thankyou">
+		<a href="https://squatchcreative.com" title="Built By Squatch Creative" target="_blank">
+			<?php get_template_part('images/built-by-squatch'); ?>
+		</a>
+	</span>
+	<?php
+}
+add_filter('admin_footer_text', 'squatch_admin_footer_text');
+function footer_text_admin_styles() {
+    echo '<style>
+        #footer-thankyou a, #footer-thankyou svg {
+			display:block;width:107px; height:auto; fill:#5b5b5b;
+		}
+    </style>';
+}
+add_action('admin_head', 'footer_text_admin_styles');
 
 function squatch_custom_block_categories( $categories ) {
 	$custom_category = array(
