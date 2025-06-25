@@ -222,6 +222,7 @@ small {font-size:70%;}
 .clear {	clear:both; float:none; display:block; position:relative; }
 .text-center { text-align:center; }
 .text-right { text-align:right; } 
+.text-balance { text-wrap:balance; }
 .no-gap { margin:0px auto !important; padding:0px !important; } 
 hr.wp-block-separator {
     display: block;
