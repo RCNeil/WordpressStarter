@@ -43,6 +43,8 @@
 			]
 		},
 		"typography": {
+			"defaultFontSizes": false,
+			"customFontSize": true,
 			"lineHeight": true,
 			"fluid" : true,
 			"fontSizes": [
