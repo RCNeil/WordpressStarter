@@ -13,7 +13,6 @@ if (function_exists('add_theme_support')){
 	add_theme_support ('responsive-embeds');
 	add_theme_support('editor-styles');
 	add_editor_style( 'editor-styles.css' );
-    load_theme_textdomain('squatch', get_template_directory() . '/languages');
 	
 	remove_image_size('1536x1536');
 	remove_image_size('2048x2048');
