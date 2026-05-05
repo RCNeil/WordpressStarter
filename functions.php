@@ -176,6 +176,21 @@ function remove_menus(){
 }
 add_action( 'admin_menu', 'remove_menus', 999 );
 
+
+//REMOVE ALL DASHBOARD WIDGETS EXCEPT AT A GLANCE AND SITE HEALTH
+add_action('wp_dashboard_setup',function(){
+	global $wp_meta_boxes;
+	foreach($wp_meta_boxes['dashboard'] as $context => $priorities){
+		foreach($priorities as $priority => $boxes){
+			foreach($boxes as $id => $box){
+				if($id !== 'dashboard_right_now' && $id !== 'dashboard_site_health'){
+					remove_meta_box($id,'dashboard',$context);
+				}
+			}
+		}
+	}
+},100);
+
 //SQUATCH WP LOGO
 function add_squatch_logo() { ?>
     <style type="text/css">
