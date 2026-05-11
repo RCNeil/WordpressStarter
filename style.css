@@ -193,7 +193,7 @@ image-overlay {
 figure {
 	display:block;
 	position:relative;
-	margin:0 auto;
+	margin:0;
 }
 figure img, a img {
 	display:block;
@@ -206,7 +206,7 @@ img {
 	height:auto; 
 	border:0px;
 	padding:0px;
-	margin:0px auto;
+	margin:0px;
 }
 svg {
 	display:block;
