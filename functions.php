@@ -151,6 +151,42 @@ add_filter('style_loader_tag', 'html5_style_remove');
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); 
 
+
+
+function squatch_excerpt($post = null, $max_words = 44, $min_words = 20) {
+	$post = get_post($post);
+	if(!$post) { return '';	}
+	$text = has_excerpt($post) ? $post->post_excerpt : $post->post_content;
+	$text = strip_shortcodes($text);
+	$text = wp_strip_all_tags($text);
+	$text = preg_replace('/\s+/', ' ', trim($text));
+	if(empty($text)) {
+		return '';
+	}
+	preg_match_all('/\S+/', $text, $matches);
+	$words = $matches[0];
+	$total_words = count($words);
+	if($total_words <= $max_words) {
+		return $text;
+	}
+	$output = [];
+	$ended_on_punctuation = false;
+
+	for($i = 0; $i < $max_words; $i++) {
+		$word = $words[$i];
+		$output[] = $word;
+		if($i + 1 >= $min_words && preg_match('/[.!?]["\']?$/', $word)) {
+			$ended_on_punctuation = true;
+			break;
+		}
+	}
+	$excerpt = implode(' ', $output);
+	if(!$ended_on_punctuation) {
+		$excerpt .= '...';
+	}
+	return $excerpt;
+}
+
 //REMOVE MENUS
 function remove_menus(){
 	

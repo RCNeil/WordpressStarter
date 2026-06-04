@@ -9,6 +9,7 @@
 		<time datetime="<?php echo esc_attr(get_the_date('c')); ?>">
 			<a href="<?php the_permalink(); ?>"><?php the_date('F j, Y'); ?></a>
 		</time>
+		<p><?php echo squatch_excerpt(); ?></p>
 		<a href="<?php the_permalink(); ?>" class="button">Read More</a>
 	</div>
 <?php endwhile; endif; ?>
