@@ -259,6 +259,9 @@ function footer_text_admin_styles() {
 }
 add_action('admin_head', 'footer_text_admin_styles');
 
+$squatch_icon = include get_template_directory() . '/images/squatch-mark.php';
+define('SQUATCH_BLOCK_ICON', $squatch_icon);
+
 function squatch_custom_block_categories( $categories ) {
 	$custom_category = array(
 		'slug'  => 'squatch-blocks',
@@ -280,7 +283,7 @@ function my_acf_init_block_types() {
 			'description'		=> __('A custom block built by Squatch Creative'),
 			'render_template'	=> 'includes/blocks/hero-image.php',
 			'category'			=> 'squatch-blocks',
-			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
+			'icon'				=> SQUATCH_BLOCK_ICON,
 			'keywords'			=> array( 'block' ),
 			'mode'	=> 'edit',
 			'supports' => array('mode' => false, 'anchor' => true),
@@ -292,7 +295,7 @@ function my_acf_init_block_types() {
 			'description'		=> __('A custom block built by Squatch Creative'),
 			'render_template'	=> 'includes/blocks/innerblocks-example.php',
 			'category'			=> 'squatch-blocks',
-			'icon'				=> file_get_contents( get_template_directory() . '/images/squatch-mark.php' ),
+			'icon'				=> SQUATCH_BLOCK_ICON,
 			'keywords'			=> array( 'block' ),
 			'mode'	=> 'preview',
 			'supports' => array('anchor' => true, 'jsx' => true),
