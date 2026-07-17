@@ -3,7 +3,7 @@ $id = 'squatch-block-' . $block['id'];
 if( !empty($block['anchor']) ) {
 	$id = $block['anchor'];
 }
-$className = 'container hero-image-block';
+$className = 'hero-block';
 if( !empty($block['className']) ) {
 	$className .= ' ' . $block['className'];
 }
