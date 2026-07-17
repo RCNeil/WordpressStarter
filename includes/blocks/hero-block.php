@@ -15,7 +15,7 @@ $image = get_field('image');
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 	<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" class="animate" />
-	<overlay></overlay>
+	<image-overlay></image-overlay>
 </div>
 <style type="text/css">
 	#<?php echo $id; ?> {

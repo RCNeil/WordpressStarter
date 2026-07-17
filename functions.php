@@ -278,10 +278,10 @@ function my_acf_init_block_types() {
 	if( function_exists('acf_register_block_type') ) {
 				
 		acf_register_block_type(array(
-			'name'				=> 'hero-image',
-			'title'				=> __('Hero Image'),
+			'name'				=> 'hero-block',
+			'title'				=> __('Hero Block'),
 			'description'		=> __('A custom block built by Squatch Creative'),
-			'render_template'	=> 'includes/blocks/hero-image.php',
+			'render_template'	=> 'includes/blocks/hero-block.php',
 			'category'			=> 'squatch-blocks',
 			'icon'				=> SQUATCH_BLOCK_ICON,
 			'keywords'			=> array( 'block' ),
