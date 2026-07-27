@@ -97,6 +97,15 @@ if (function_exists('register_sidebar')) {
     ));
 }
 
+add_action('enqueue_block_editor_assets', function() {
+	wp_enqueue_style(
+		'my-widget-editor-styles',
+		get_theme_file_uri('/editor-styles.css'),
+		array(),
+		wp_get_theme()->get('Version')
+	);
+});
+
 // Remove Admin bar
 function remove_admin_bar() {
     return false;
